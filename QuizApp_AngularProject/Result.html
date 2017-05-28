@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+</head>
+<body ng-app="turtleFacts">
+    <div class="container">
+        <!--Result Controller-->
+        <div ng-controller="resultCtrl as result" ng-show="result.quizMetricsFactory.resultsActive">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Results:</h2>
+                    <div class="btn-toolbar">
+                        <button class="btn"
+                                ng-repeat="results in result.quizMetricsFactory.answeredQuestions"
+                                ng-class="{'btn-info':results.isCorrect===true,
+                                           'btn-danger':results.isCorrect===false}"></button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Legend:</h4>
+                </div>
+            </div>
+        </div><!--Result Controller End-->
+    </div>
+
+    <!--Thrid party libraries-->
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <!--Application js Files-->
+    <script src="js/app.js"></script>
+    <script src="js/controllers/lists.js"></script>
+    <script src="js/controllers/quiz.js"></script>
+    <script src="js/controllers/result.js"></script>
+    <script src="js/factories/quizMetrics.js"></script>
+    <script src="js/factories/dataFactory.js"></script>
+</body>
+</html>
